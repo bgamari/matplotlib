@@ -22,6 +22,15 @@ revision, see the :ref:`github-stats`.
 new in matplotlib-1.3
 =====================
 
+Power-law normalization
+-----------------------
+Ben Gamari added a new normalization
+:class:`~matplotlib.colors.PowerNorm`, implementing power-law
+normalization. This class maps a range of values to the interval [0,1]
+with a power-law scaling with the exponent provided by the
+constructor's `gamma` argument. Power law normalization can be useful for,
+e.g., emphasizing small populations in a two-dimensional histogram.
+
 Initialize a rotated rectangle
 ------------------------------
 Damon McDougall extended the :class:`~matplotlib.patches.Rectangle` constructor

@@ -46,6 +46,16 @@ def test_LogNorm():
     ln = mcolors.LogNorm(clip=True, vmax=5)
     assert_array_equal(ln([1, 6]), [0, 1.0])
 
+def test_PowerNorm():
+    a = [-0.5, 0, 0.5, 1, 1.5]
+
+    pnorm = mcolors.PowerNorm(1)
+    norm = mcolors.Normalize()
+    assert_array_almost_equal(norm(a), pnorm(a))
+
+    pnorm = mcolors.PowerNorm(1.5)
+    assert_array_almost_equal(a, pnorm.inverse(pnorm(a)))
+
 def test_Normalize():
     norm = mcolors.Normalize()
     vals = np.arange(-10, 10, 1, dtype=np.float)
@@ -89,3 +99,4 @@ def _mask_tester(norm_instance, vals):
     masked_array = np.ma.array(vals)
     masked_array[0] = np.ma.masked
     assert_array_equal(masked_array.mask, norm_instance(masked_array).mask)
+
