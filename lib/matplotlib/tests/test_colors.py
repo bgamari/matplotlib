@@ -46,6 +46,7 @@ def test_LogNorm():
     ln = mcolors.LogNorm(clip=True, vmax=5)
     assert_array_equal(ln([1, 6]), [0, 1.0])
 
+
 def test_PowerNorm():
     a = [-0.5, 0, 0.5, 1, 1.5]
 
@@ -55,6 +56,7 @@ def test_PowerNorm():
 
     pnorm = mcolors.PowerNorm(1.5)
     assert_array_almost_equal(a, pnorm.inverse(pnorm(a)))
+
 
 def test_Normalize():
     norm = mcolors.Normalize()
